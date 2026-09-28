@@ -6,6 +6,7 @@ import 'package:sshfileexplorer/controller/sftp_controller.dart';
 import 'package:sshfileexplorer/model/file.dart';
 import 'package:sshfileexplorer/view/explorer.dart';
 import 'package:sshfileexplorer/view/image_window.dart';
+import 'package:sshfileexplorer/view/navigator_key.dart';
 import 'package:sshfileexplorer/view/text_window.dart';
 import 'package:sshfileexplorer/view/video_window.dart';
 
@@ -15,6 +16,7 @@ import 'menu.dart';
 class Start extends StatelessWidget {
   Start({super.key, required this.pc, required this.sftp}) {
     _router = GoRouter(
+      navigatorKey: navigatorKey,
       routes: <RouteBase>[
         GoRoute(
           path: '/',
