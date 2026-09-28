@@ -3,6 +3,7 @@ name: Build
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
   workflow_dispatch:
 
@@ -46,7 +47,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: windows-release
-          path: build/windows/x64/release/bundle
+          path: build/windows/x64/Release/
 
   android:
     runs-on: ubuntu-latest
@@ -78,6 +79,7 @@ jobs:
           path: build/app/outputs/bundle/release/app-release.aab
 
   release:
+    if: startsWith(github.ref, 'refs/tags/v')
     needs: [linux, windows, android]
     runs-on: ubuntu-latest
     permissions:
@@ -97,4 +99,4 @@ jobs:
             linux.zip
             windows.zip
             artifacts/android-apk/app-release.apk
-            artifacs/android-aab/app-release.aab
+            artifacts/android-aab/app-release.aab
