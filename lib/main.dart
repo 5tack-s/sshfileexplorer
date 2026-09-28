@@ -12,8 +12,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 void main() async {
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-
   var temp = await getTemporaryDirectory();
   final cacheDir = Directory(p.join(temp.path, "cache"));
 
@@ -28,5 +26,6 @@ void main() async {
   final pc = ProberController();
   final sftp = SftpController(pc.ps);
 
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(Start(pc: pc, sftp: sftp));
 }
