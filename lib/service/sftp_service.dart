@@ -71,6 +71,9 @@ class SftpService {
       '.gif',
       '.bmp',
       '.webp',
+      '.tiff',
+      '.tif',
+      '.ico',
     };
 
     if (imageExt.contains(ext)) {
@@ -92,6 +95,9 @@ class SftpService {
       '.mpeg',
       '.webm',
       '.mkv',
+      '.flv',
+      '.wmv',
+      '.m4v',
     };
     final ext = p.extension(path).toLowerCase();
 

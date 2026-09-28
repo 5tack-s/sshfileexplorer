@@ -54,7 +54,7 @@ class _VideoWindow extends State<VideoWindow> {
         ),
       ),
       body: Column(
-        children: [Center(child: Video(controller: controller))],
+        children: [Expanded(child: Video(controller: controller))],
       ),
     );
   }

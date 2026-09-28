@@ -40,5 +40,6 @@ class SftpRepository {
         file.delete();
       }
     }
+    _trackedFiles.clear();
   }
 }

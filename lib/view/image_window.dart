@@ -28,19 +28,21 @@ try this: https://pub.dev/packages/interactive_viewer_2
         title: const Text("Image"),
         leading: IconButton(
           onPressed: () async {
-            await OwnRepository.delete(image);
+            //await OwnRepository.delete(image);
             if (!context.mounted) return;
             context.pop();
           },
           icon: const Icon(Icons.arrow_back),
         ),
       ),
-      body: Center(
-        child: Expanded(
-          child: InteractiveViewer(
-            child: Image.memory(image.data as Uint8List),
+      body: Row(
+        children: [
+          Expanded(
+            child: InteractiveViewer(
+              child: Image.memory(image.data as Uint8List),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

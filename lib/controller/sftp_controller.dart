@@ -85,7 +85,7 @@ class SftpController {
       '.ico',
     };
 
-    var ext = p.extension(file);
+    var ext = p.extension(file).toLowerCase();
     var t = video.contains(ext)
         ? FileType.video
         : audio.contains(ext)
