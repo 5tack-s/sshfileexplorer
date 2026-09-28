@@ -65,7 +65,7 @@ jobs:
           cache: true
 
       - run: flutter pub get
-      - run: flutter build apk --release
+      - run: flutter build apk --release --split-per-abi
       - run: flutter build appbundle --release
 
       - uses: actions/upload-artifact@v4
@@ -76,7 +76,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: android-aab
-          path: build/app/outputs/bundle/release/app-release.aab
+          path: build/app/outputs/bundle/release/app-*-release.aab
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -98,5 +98,5 @@ jobs:
           files: |
             linux.zip
             windows.zip
-            artifacts/android-apk/app-release.apk
+            artifacts/android-apk/*.apk
             artifacts/android-aab/app-release.aab
