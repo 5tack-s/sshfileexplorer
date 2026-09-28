@@ -15,7 +15,7 @@ jobs:
       - name: install linux dependencies
         run: | 
           sudo apt-get update
-          sudo apt-get install -y mpv clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
+          sudo apt-get install -y libmpv-dev clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
 
       - uses: subosito/flutter-action@v2
         with:
