@@ -3,6 +3,7 @@ import 'package:sshfileexplorer/controller/prober_controller.dart';
 import 'package:sshfileexplorer/controller/sftp_controller.dart';
 import 'package:media_kit/media_kit.dart';
 import "package:path/path.dart" as p;
+import 'package:flutter/services.dart';
 
 import 'view/start.dart';
 
@@ -11,6 +12,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 void main() async {
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
   var temp = await getTemporaryDirectory();
   final cacheDir = Directory(p.join(temp.path, "cache"));
 
